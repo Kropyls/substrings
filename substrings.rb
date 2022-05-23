@@ -10,11 +10,11 @@ def substrings(string, dictionary)
   string = string.downcase()
   hash_of_substrings = dictionary.reduce(Hash.new(0)) do |acc, word|
     if string.include?(word.downcase())
-
-      acc[word.downcase()] += string.scan(/(?=#{word.downcase()})/).count
+                              #looks for if the word appears more than once
+      acc[word.downcase()] += string.scan(word.downcase()).count
     end
     acc
   end
 end
 
-puts(substrings("Below", dict))
+puts(substrings("Howdy partner, sit down! How's it going?", dict))
